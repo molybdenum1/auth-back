@@ -10,26 +10,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.User = void 0;
+const decorators_1 = require("@nestjs/swagger/dist/decorators");
 const sequelize_typescript_1 = require("sequelize-typescript");
 let User = class User extends sequelize_typescript_1.Model {
 };
 __decorate([
+    (0, decorators_1.ApiProperty)({ example: '1', description: 'Unique identificator' }),
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.INTEGER, unique: true, autoIncrement: true, primaryKey: true }),
     __metadata("design:type", Number)
 ], User.prototype, "id", void 0);
 __decorate([
+    (0, decorators_1.ApiProperty)({ example: 'email@email.com', description: `User's email address` }),
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, unique: true, allowNull: false }),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
+    (0, decorators_1.ApiProperty)({ example: 'JOJ222Ll', description: `User's password` }),
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
 ], User.prototype, "password", void 0);
 __decorate([
+    (0, decorators_1.ApiProperty)({ example: 'Anika', description: `User's first name` }),
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: false }),
     __metadata("design:type", String)
 ], User.prototype, "firstName", void 0);
 __decorate([
+    (0, decorators_1.ApiProperty)({ example: 'ZHO', description: `User's last name` }),
     (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.STRING, allowNull: true }),
     __metadata("design:type", String)
 ], User.prototype, "lastName", void 0);
