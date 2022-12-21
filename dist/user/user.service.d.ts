@@ -5,4 +5,5 @@ export declare class UserService {
     constructor(userRepo: typeof User);
     createUser(dto: CreateUserDto): Promise<User>;
     getAllUsers(): Promise<User[]>;
+    getUserByEmail(email: string): Promise<User>;
 }
