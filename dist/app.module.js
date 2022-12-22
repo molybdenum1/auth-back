@@ -10,6 +10,7 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const sequelize_1 = require("@nestjs/sequelize");
+const auth_module_1 = require("./auth/auth.module");
 const user_model_1 = require("./user/user.model");
 const user_module_1 = require("./user/user.module");
 let AppModule = class AppModule {
@@ -32,7 +33,8 @@ AppModule = __decorate([
                 models: [user_model_1.User],
                 autoLoadModels: true
             }),
-            user_module_1.UserModule
+            user_module_1.UserModule,
+            auth_module_1.AuthModule
         ],
     })
 ], AppModule);

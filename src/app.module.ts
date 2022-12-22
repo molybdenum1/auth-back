@@ -1,6 +1,7 @@
 import { Module } from "@nestjs/common";
 import { ConfigModule } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
+import { AuthModule } from "./auth/auth.module";
 import { User } from "./user/user.model";
 import { UserModule } from "./user/user.module";
 
@@ -25,7 +26,8 @@ import { UserModule } from "./user/user.module";
           models: [User],
           autoLoadModels: true
         }),
-        UserModule
+        UserModule,
+        AuthModule
       ],
 })
 export class AppModule {

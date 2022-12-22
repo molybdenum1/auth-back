@@ -20,6 +20,8 @@ let AuthService = class AuthService {
         this.jwtService = jwtService;
     }
     async login(userDto) {
+        const user = await this.validateUser(userDto);
+        return await this.generateToken(user);
     }
     async reg(userDto) {
         const candidate = await this.userService.getUserByEmail(userDto.email);
@@ -35,6 +37,14 @@ let AuthService = class AuthService {
         return {
             token: this.jwtService.sign(payload)
         };
+    }
+    async validateUser(userDto) {
+        const user = await this.userService.getUserByEmail(userDto.email);
+        const passwordEquals = await bcrypt.compare(userDto.password, user.password);
+        if (user && passwordEquals) {
+            return user;
+        }
+        throw new common_1.UnauthorizedException({ message: 'Uncorrect email or password' });
     }
 };
 AuthService = __decorate([
